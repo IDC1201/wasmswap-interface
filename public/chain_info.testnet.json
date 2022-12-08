@@ -1,38 +1,38 @@
 {
-  "chainId": "uni-5",
-  "chainName": "Juno Uni Testnet",
-  "rpc": "https://rpc.uni.juno.deuslabs.fi:443/",
-  "rest": "https://lcd.uni.juno.deuslabs.fi:443/",
+  "chainId": "columbus-5",
+  "chainName": "terra classic chain",
+  "rpc": "https://terra-rpc.easy2stake.com/",
+  "rest": "https://lcd.terra.dev/",
   "stakeCurrency": {
-    "coinDenom": "JUNOX",
-    "coinMinimalDenom": "ujunox",
+    "coinDenom": "LUNC",
+    "coinMinimalDenom": "uluna",
     "coinDecimals": 6
   },
   "bip44": {
     "coinType": 118
   },
   "bech32Config": {
-    "bech32PrefixAccAddr": "juno",
-    "bech32PrefixAccPub": "junopub",
-    "bech32PrefixValAddr": "junovaloper",
-    "bech32PrefixValPub": "junovaloperpub",
-    "bech32PrefixConsAddr": "junovalcons",
-    "bech32PrefixConsPub": "junovalconspub"
+    "bech32PrefixAccAddr": "uluna",
+    "bech32PrefixAccPub": "ulunapub",
+    "bech32PrefixValAddr": "ulunavaloper",
+    "bech32PrefixValPub": "ulunavaloperpub",
+    "bech32PrefixConsAddr": "ulunavalcons",
+    "bech32PrefixConsPub": "ulunavalconspub"
   },
   "currencies": [
     {
-      "coinDenom": "JUNOX",
-      "coinMinimalDenom": "ujunox",
+      "coinDenom": "USTC",
+      "coinMinimalDenom": "uusd",
       "coinDecimals": 6,
-      "coinGeckoId": "juno-network"
+      "coinGeckoId": "terra-classic-network"
     }
   ],
   "feeCurrencies": [
     {
-      "coinDenom": "JUNOX",
-      "coinMinimalDenom": "ujunox",
+      "coinDenom": "USTC",
+      "coinMinimalDenom": "uusx",
       "coinDecimals": 6,
-      "coinGeckoId": "juno-network"
+      "coinGeckoId": "terra-classic-network"
     }
   ],
   "coinType": 118,
