@@ -14,7 +14,7 @@ export function selectEligiblePoolsForTokenToTokenSwap({
   tokenB,
   poolsList,
 }: SelectEligiblePoolsForTokenToTokenSwapArgs) {
-  let eligiblePools = poolsList.reduce(
+  return poolsList.reduce(
     (result, pool) => {
       const [poolAssetA, poolAssetB] = pool.pool_assets
 
@@ -52,23 +52,13 @@ export function selectEligiblePoolsForTokenToTokenSwap({
         const intermediaryToken =
           tokenA.symbol === poolAssetA.symbol ? poolAssetB : poolAssetA
 
-        const intermediaryTokenPositionInputPool =
-          intermediaryToken.denom === poolAssetA.denom ? 'a' : 'b'
-
         const passThroughSwapOutputPool = poolsList.find(
           ({ pool_assets: [assetA, assetB] }) => {
-            const intermediaryTokenPositionOutputPool =
-              intermediaryToken.denom === assetA.denom ? 'a' : 'b'
-
-            const intermediaryTokenInSamePosition =
-              intermediaryTokenPositionInputPool ==
-              intermediaryTokenPositionOutputPool
             return (
-              ((intermediaryToken.symbol === assetA.symbol &&
+              (intermediaryToken.symbol === assetA.symbol &&
                 tokenB.symbol === assetB.symbol) ||
-                (tokenB.symbol === assetA.symbol &&
-                  intermediaryToken.symbol === assetB.symbol)) &&
-              intermediaryTokenInSamePosition
+              (tokenB.symbol === assetA.symbol &&
+                intermediaryToken.symbol === assetB.symbol)
             )
           }
         )
@@ -98,12 +88,4 @@ export function selectEligiblePoolsForTokenToTokenSwap({
       passThroughPools: [],
     } as MatchingPoolsForTokenToTokenSwap
   )
-  if (
-    eligiblePools.poolForDirectTokenAToTokenBSwap ||
-    eligiblePools.poolForDirectTokenBToTokenASwap
-  ) {
-    eligiblePools.passThroughPools = []
-  }
-  console.log(eligiblePools)
-  return eligiblePools
 }
