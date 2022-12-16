@@ -30,7 +30,7 @@
   "feeCurrencies": [
     {
       "coinDenom": "USTC",
-      "coinMinimalDenom": "uusx",
+      "coinMinimalDenom": "uusd",
       "coinDecimals": 6,
       "coinGeckoId": "terra-classic-network"
     }
